@@ -1,6 +1,6 @@
 ---
 name: humanizer
-version: 2.0.0
+version: 2.1.0
 description: |
   Remove signs of AI-generated writing from text. Use when editing or reviewing
   text to make it sound more natural and human-written. Based on Wikipedia's
@@ -40,65 +40,81 @@ When given text to humanize:
 
 **Problem:** LLM writing puffs up importance by adding statements about how arbitrary aspects represent or contribute to a broader topic.
 
-**Example to fix:**
-> The Statistical Institute of Catalonia was officially established in 1989, marking a pivotal moment in the evolution of regional statistics in Spain. [...] This initiative was part of a broader movement across Spain to decentralize administrative functions.
+**Before:**
+> The Statistical Institute of Catalonia was officially established in 1989, marking a pivotal moment in the evolution of regional statistics in Spain. This initiative was part of a broader movement across Spain to decentralize administrative functions and enhance regional governance.
 
-**Fix:** State facts directly without inflating significance. Remove "pivotal moment," "broader movement," etc.
+**After:**
+> The Statistical Institute of Catalonia was established in 1989 to collect and publish regional statistics independently from Spain's national statistics office.
+
+---
 
 ### 2. Undue Emphasis on Notability and Media Coverage
 
 **Words to watch:** independent coverage, local/regional/national media outlets, written by a leading expert, active social media presence
 
-**Problem:** LLMs hit readers over the head with claims of notability, often listing sources without context, or echoing Wikipedia guideline wording like "independent coverage."
+**Problem:** LLMs hit readers over the head with claims of notability, often listing sources without context.
 
-**Example to fix:**
-> Her views have been cited in The New York Times, BBC, Financial Times, and The Hindu.
+**Before:**
+> Her views have been cited in The New York Times, BBC, Financial Times, and The Hindu. She maintains an active social media presence with over 500,000 followers.
 
-**Fix:** Either provide what those sources actually said, or remove the name-dropping.
+**After:**
+> In a 2024 New York Times interview, she argued that AI regulation should focus on outcomes rather than methods.
+
+---
 
 ### 3. Superficial Analyses with -ing Endings
 
 **Words to watch:** highlighting/underscoring/emphasizing..., ensuring..., reflecting/symbolizing..., contributing to..., cultivating/fostering..., encompassing..., showcasing...
 
-**Problem:** AI chatbots tack present participle ("-ing") phrases onto sentences to add fake depth and synthesis.
+**Problem:** AI chatbots tack present participle ("-ing") phrases onto sentences to add fake depth.
 
-**Example to fix:**
-> The temple's color palette of blue, green, and gold resonates with the region's natural beauty, symbolizing Texas bluebonnets, the Gulf of Mexico, and the diverse Texan landscapes.
+**Before:**
+> The temple's color palette of blue, green, and gold resonates with the region's natural beauty, symbolizing Texas bluebonnets, the Gulf of Mexico, and the diverse Texan landscapes, reflecting the community's deep connection to the land.
 
-**Fix:** Either expand into real analysis with sources, or remove the superficial addition entirely.
+**After:**
+> The temple uses blue, green, and gold colors. The architect said these were chosen to reference local bluebonnets and the Gulf coast.
+
+---
 
 ### 4. Promotional and Advertisement-like Language
 
 **Words to watch:** boasts a, vibrant, rich (figurative), profound, enhancing its, showcasing, exemplifies, commitment to, natural beauty, nestled, in the heart of, groundbreaking (figurative), renowned, breathtaking, must-visit, stunning
 
-**Problem:** LLMs have serious problems keeping a neutral tone, especially for anything that could be "cultural heritage."
+**Problem:** LLMs have serious problems keeping a neutral tone, especially for "cultural heritage" topics.
 
-**Example to fix:**
-> Nestled within the breathtaking region of Gonder in Ethiopia, Alamata Raya Kobo stands as a vibrant town with a rich cultural heritage.
+**Before:**
+> Nestled within the breathtaking region of Gonder in Ethiopia, Alamata Raya Kobo stands as a vibrant town with a rich cultural heritage and stunning natural beauty.
 
-**Fix:** Use specific, factual descriptions. Replace superlatives with concrete details.
+**After:**
+> Alamata Raya Kobo is a town in the Gonder region of Ethiopia, known for its weekly market and 18th-century church.
+
+---
 
 ### 5. Vague Attributions and Weasel Words
 
-**Words to watch:** Industry reports, Observers have cited, Experts argue, Some critics argue, several sources/publications (when few cited), such as (before exhaustive lists)
+**Words to watch:** Industry reports, Observers have cited, Experts argue, Some critics argue, several sources/publications (when few cited)
 
 **Problem:** AI chatbots attribute opinions to vague authorities without specific sources.
 
-**Example to fix:**
-> Due to its unique characteristics, the Haolai River is of interest to researchers and conservationists.
+**Before:**
+> Due to its unique characteristics, the Haolai River is of interest to researchers and conservationists. Experts believe it plays a crucial role in the regional ecosystem.
 
-**Fix:** Either cite specific sources or remove the claim.
+**After:**
+> The Haolai River supports several endemic fish species, according to a 2019 survey by the Chinese Academy of Sciences.
+
+---
 
 ### 6. Outline-like "Challenges and Future Prospects" Sections
 
 **Words to watch:** Despite its... faces several challenges..., Despite these challenges, Challenges and Legacy, Future Outlook
 
-**Problem:** Many LLM-generated articles include formulaic "Challenges" sections that begin with "Despite its [positive words]" and end with vague positive assessments.
+**Problem:** Many LLM-generated articles include formulaic "Challenges" sections.
 
-**Example to fix:**
-> Despite its industrial prosperity, Korattur faces challenges typical of urban areas. [...] With its strategic location and ongoing initiatives, Korattur continues to thrive.
+**Before:**
+> Despite its industrial prosperity, Korattur faces challenges typical of urban areas, including traffic congestion and water scarcity. Despite these challenges, with its strategic location and ongoing initiatives, Korattur continues to thrive as an integral part of Chennai's growth.
 
-**Fix:** Either provide specific, sourced information about challenges, or remove the formulaic structure.
+**After:**
+> Traffic congestion increased after 2015 when three new IT parks opened. The municipal corporation began a stormwater drainage project in 2022 to address recurring floods.
 
 ---
 
@@ -106,59 +122,77 @@ When given text to humanize:
 
 ### 7. Overused "AI Vocabulary" Words
 
-**High-frequency AI words:** Additionally (especially starting sentences), align with, crucial, delve (pre-2025), emphasizing, enduring, enhance, fostering, garner, highlight (verb), interplay, intricate/intricacies, key (adjective), landscape (abstract noun), pivotal, showcase, tapestry (abstract noun), testament, underscore (verb), valuable, vibrant
+**High-frequency AI words:** Additionally, align with, crucial, delve, emphasizing, enduring, enhance, fostering, garner, highlight (verb), interplay, intricate/intricacies, key (adjective), landscape (abstract noun), pivotal, showcase, tapestry (abstract noun), testament, underscore (verb), valuable, vibrant
 
-**Problem:** These words appear far more frequently in post-2023 text than in comparable pre-2023 text. They often co-occur—where there's one, there are likely others.
+**Problem:** These words appear far more frequently in post-2023 text. They often co-occur.
 
-**Example to fix:**
-> Additionally, a distinctive feature of Somali culinary tradition is the incorporation of camel meat. [...] An enduring testament to Italian colonial influence is the widespread adoption of pasta in the local culinary landscape, showcasing how these dishes have integrated into the traditional diet.
+**Before:**
+> Additionally, a distinctive feature of Somali cuisine is the incorporation of camel meat. An enduring testament to Italian colonial influence is the widespread adoption of pasta in the local culinary landscape, showcasing how these dishes have integrated into the traditional diet.
 
-**Fix:** Replace with simpler, more direct language. Use "also" instead of "additionally," remove "testament," "landscape," "showcasing."
+**After:**
+> Somali cuisine also includes camel meat, which is considered a delicacy. Pasta dishes, introduced during Italian colonization, remain common, especially in the south.
+
+---
 
 ### 8. Avoidance of "is"/"are" (Copula Avoidance)
 
 **Words to watch:** serves as/stands as/marks/represents [a], boasts/features/offers [a]
 
-**Problem:** LLMs substitute elaborate constructions for simple copulas. Studies show over 10% decrease in "is" and "are" usage in AI text.
+**Problem:** LLMs substitute elaborate constructions for simple copulas.
 
-**Example to fix:**
-> Gallery 825 serves as LAAA's exhibition space for contemporary art. The gallery features four separate spaces.
+**Before:**
+> Gallery 825 serves as LAAA's exhibition space for contemporary art. The gallery features four separate spaces and boasts over 3,000 square feet.
 
-**Better:**
-> Gallery 825 is LAAA's exhibition space for contemporary art. The gallery has four separate spaces.
+**After:**
+> Gallery 825 is LAAA's exhibition space for contemporary art. The gallery has four rooms totaling 3,000 square feet.
+
+---
 
 ### 9. Negative Parallelisms
 
-**Problem:** Constructions like "Not only...but..." or "It's not just about..., it's..." are overused to appear balanced and thoughtful.
+**Problem:** Constructions like "Not only...but..." or "It's not just about..., it's..." are overused.
 
-**Example to fix:**
-> It's not just about the beat riding under the vocals; it's part of the aggression and atmosphere.
+**Before:**
+> It's not just about the beat riding under the vocals; it's part of the aggression and atmosphere. It's not merely a song, it's a statement.
 
-**Fix:** State the point directly without dramatic contrast.
+**After:**
+> The heavy beat adds to the aggressive tone.
+
+---
 
 ### 10. Rule of Three Overuse
 
 **Problem:** LLMs force ideas into groups of three to appear comprehensive.
 
-**Example to fix:**
-> The event features keynote sessions, panel discussions, and networking opportunities.
+**Before:**
+> The event features keynote sessions, panel discussions, and networking opportunities. Attendees can expect innovation, inspiration, and industry insights.
 
-**Fix:** Use the natural number of items. Sometimes two, sometimes four. Let content determine structure.
+**After:**
+> The event includes talks and panels. There's also time for informal networking between sessions.
+
+---
 
 ### 11. Elegant Variation (Synonym Cycling)
 
-**Problem:** AI has repetition-penalty code that causes excessive synonym substitution (e.g., cycling through "protagonist," "key player," "eponymous character").
+**Problem:** AI has repetition-penalty code causing excessive synonym substitution.
 
-**Fix:** It's okay to repeat the same word when it's the clearest choice.
+**Before:**
+> The protagonist faces many challenges. The main character must overcome obstacles. The central figure eventually triumphs. The hero returns home.
+
+**After:**
+> The protagonist faces many challenges but eventually triumphs and returns home.
+
+---
 
 ### 12. False Ranges
 
-**Problem:** LLMs use "from X to Y" constructions where X and Y aren't actually endpoints of a meaningful scale.
+**Problem:** LLMs use "from X to Y" constructions where X and Y aren't on a meaningful scale.
 
-**Example to fix:**
+**Before:**
 > Our journey through the universe has taken us from the singularity of the Big Bang to the grand cosmic web, from the birth and death of stars to the enigmatic dance of dark matter.
 
-**Fix:** Use simple lists or remove the false range structure.
+**After:**
+> The book covers the Big Bang, star formation, and current theories about dark matter.
 
 ---
 
@@ -166,53 +200,77 @@ When given text to humanize:
 
 ### 13. Em Dash Overuse
 
-**Problem:** LLMs use em dashes (—) more often than humans, especially mimicking "punchy" sales-like writing.
+**Problem:** LLMs use em dashes (—) more than humans, mimicking "punchy" sales writing.
 
-**Example to fix:**
-> The term is primarily promoted by Dutch institutions—not by the people themselves. You don't say "Netherlands, Europe" as an address—yet this mislabeling continues.
+**Before:**
+> The term is primarily promoted by Dutch institutions—not by the people themselves. You don't say "Netherlands, Europe" as an address—yet this mislabeling continues—even in official documents.
 
-**Fix:** Replace most em dashes with commas, parentheses, or periods. Use sparingly for genuine emphasis.
+**After:**
+> The term is primarily promoted by Dutch institutions, not by the people themselves. You don't say "Netherlands, Europe" as an address, yet this mislabeling continues in official documents.
+
+---
 
 ### 14. Overuse of Boldface
 
-**Problem:** AI chatbots emphasize phrases in boldface mechanically, often in a "key takeaways" fashion.
+**Problem:** AI chatbots emphasize phrases in boldface mechanically.
 
-**Example to fix:**
-> It blends **OKRs (Objectives and Key Results)**, **KPIs (Key Performance Indicators)**, and visual strategy tools such as the **Business Model Canvas (BMC)**.
+**Before:**
+> It blends **OKRs (Objectives and Key Results)**, **KPIs (Key Performance Indicators)**, and visual strategy tools such as the **Business Model Canvas (BMC)** and **Balanced Scorecard (BSC)**.
 
-**Fix:** Remove excessive bolding. Bold should be rare.
+**After:**
+> It blends OKRs, KPIs, and visual strategy tools like the Business Model Canvas and Balanced Scorecard.
+
+---
 
 ### 15. Inline-Header Vertical Lists
 
-**Problem:** AI often outputs lists where items start with bolded headers followed by colons and descriptions.
+**Problem:** AI outputs lists where items start with bolded headers followed by colons.
 
-**Example to fix:**
-> **User Experience:** The user experience has been improved...
-> **Performance:** Performance has been enhanced...
+**Before:**
+> - **User Experience:** The user experience has been significantly improved with a new interface.
+> - **Performance:** Performance has been enhanced through optimized algorithms.
+> - **Security:** Security has been strengthened with end-to-end encryption.
 
-**Fix:** Either use headers OR explanatory text, not both. Convert to prose where appropriate.
+**After:**
+> The update improves the interface, speeds up load times through optimized algorithms, and adds end-to-end encryption.
+
+---
 
 ### 16. Title Case in Headings
 
-**Problem:** AI chatbots capitalize all main words in section headings.
+**Problem:** AI chatbots capitalize all main words in headings.
 
-**Example to fix:**
+**Before:**
 > ## Strategic Negotiations And Global Partnerships
 
-**Better:**
+**After:**
 > ## Strategic negotiations and global partnerships
+
+---
 
 ### 17. Emojis
 
-**Problem:** AI chatbots often decorate headings or bullet points with emojis, especially in comments.
+**Problem:** AI chatbots often decorate headings or bullet points with emojis.
 
-**Fix:** Remove emojis unless explicitly appropriate for the context.
+**Before:**
+> 🚀 **Launch Phase:** The product launches in Q3
+> 💡 **Key Insight:** Users prefer simplicity
+> ✅ **Next Steps:** Schedule follow-up meeting
+
+**After:**
+> The product launches in Q3. User research showed a preference for simplicity. Next step: schedule a follow-up meeting.
+
+---
 
 ### 18. Curly Quotation Marks
 
-**Problem:** ChatGPT and DeepSeek use curly quotes ("...") instead of straight quotes ("..."), sometimes inconsistently.
+**Problem:** ChatGPT uses curly quotes ("...") instead of straight quotes ("...").
 
-**Note:** This alone doesn't prove AI use (Word and macOS do this too), but combined with other patterns it's a tell.
+**Before:**
+> He said "the project is on track" but others disagreed.
+
+**After:**
+> He said "the project is on track" but others disagreed.
 
 ---
 
@@ -220,34 +278,41 @@ When given text to humanize:
 
 ### 19. Collaborative Communication Artifacts
 
-**Words to watch:** I hope this helps, Of course!, Certainly!, You're absolutely right!, Would you like..., is there anything else, let me know, here is a...
+**Words to watch:** I hope this helps, Of course!, Certainly!, You're absolutely right!, Would you like..., let me know, here is a...
 
 **Problem:** Text meant as chatbot correspondence gets pasted as content.
 
-**Fix:** Remove all such artifacts completely.
+**Before:**
+> Here is an overview of the French Revolution. I hope this helps! Let me know if you'd like me to expand on any section.
+
+**After:**
+> The French Revolution began in 1789 when financial crisis and food shortages led to widespread unrest.
+
+---
 
 ### 20. Knowledge-Cutoff Disclaimers
 
-**Words to watch:** as of [date], Up to my last training update, While specific details are limited/scarce..., not widely available/documented, based on available information...
+**Words to watch:** as of [date], Up to my last training update, While specific details are limited/scarce..., based on available information...
 
 **Problem:** AI disclaimers about incomplete information get left in text.
 
-**Example to fix:**
-> While specific details about the history are not extensively documented in readily available sources...
+**Before:**
+> While specific details about the company's founding are not extensively documented in readily available sources, it appears to have been established sometime in the 1990s.
 
-**Fix:** Either find sources or remove the speculation entirely.
+**After:**
+> The company was founded in 1994, according to its registration documents.
+
+---
 
 ### 21. Sycophantic/Servile Tone
 
 **Problem:** Overly positive, people-pleasing language.
 
-**Examples to remove:**
-- "Great question!"
-- "Absolutely!"
-- "You're absolutely right!"
-- "That's an excellent point!"
+**Before:**
+> Great question! You're absolutely right that this is a complex topic. That's an excellent point about the economic factors.
 
-**Fix:** Respond directly without unnecessary affirmation.
+**After:**
+> The economic factors you mentioned are relevant here.
 
 ---
 
@@ -255,36 +320,37 @@ When given text to humanize:
 
 ### 22. Filler Phrases
 
-Replace these:
-- "In order to" → "to"
-- "Due to the fact that" → "because"
-- "At this point in time" → "now"
-- "In the event that" → "if"
-- "Has the ability to" → "can"
-- "It is important to note that" → (just state the information)
-- "It is worth mentioning that" → (just state it)
+**Before → After:**
+- "In order to achieve this goal" → "To achieve this"
+- "Due to the fact that it was raining" → "Because it was raining"
+- "At this point in time" → "Now"
+- "In the event that you need help" → "If you need help"
+- "The system has the ability to process" → "The system can process"
+- "It is important to note that the data shows" → "The data shows"
+
+---
 
 ### 23. Excessive Hedging
 
 **Problem:** Over-qualifying statements.
 
-**Examples to fix:**
-- "It could potentially" → "It could" or "It might"
-- "This might possibly" → "This might"
-- "It seems like it may" → "It may"
+**Before:**
+> It could potentially possibly be argued that the policy might have some effect on outcomes.
 
-**Fix:** Commit to the statement or acknowledge uncertainty once.
+**After:**
+> The policy may affect outcomes.
+
+---
 
 ### 24. Generic Positive Conclusions
 
 **Problem:** Vague upbeat endings.
 
-**Examples to fix:**
-- "The future looks bright"
-- "Exciting times ahead"
-- "This represents a step in the right direction"
+**Before:**
+> The future looks bright for the company. Exciting times lie ahead as they continue their journey toward excellence. This represents a major step in the right direction.
 
-**Fix:** End with specific conclusions or simply stop when done.
+**After:**
+> The company plans to open two more locations next year.
 
 ---
 
@@ -307,7 +373,9 @@ Provide:
 1. The rewritten text
 2. A brief summary of changes made (optional, if helpful)
 
-## Example
+---
+
+## Full Example
 
 **Before (AI-sounding):**
 > The new software update serves as a testament to the company's commitment to innovation. Moreover, it provides a seamless, intuitive, and powerful user experience—ensuring that users can accomplish their goals efficiently. It's not just an update, it's a revolution in how we think about productivity. Industry experts believe this will have a lasting impact on the entire sector, highlighting the company's pivotal role in the evolving technological landscape.
@@ -315,10 +383,20 @@ Provide:
 **After (Humanized):**
 > The software update adds batch processing, keyboard shortcuts, and offline mode. Early feedback from beta testers has been positive, with most reporting faster task completion.
 
+**Changes made:**
+- Removed "serves as a testament" (inflated symbolism)
+- Removed "Moreover" (AI vocabulary)
+- Removed "seamless, intuitive, and powerful" (rule of three + promotional)
+- Removed em dash and "-ensuring" phrase (superficial analysis)
+- Removed "It's not just...it's..." (negative parallelism)
+- Removed "Industry experts believe" (vague attribution)
+- Removed "pivotal role" and "evolving landscape" (AI vocabulary)
+- Added specific features and concrete feedback
+
 ---
 
 ## Reference
 
 This skill is based on [Wikipedia:Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing), maintained by WikiProject AI Cleanup. The patterns documented there come from observations of thousands of instances of AI-generated text on Wikipedia.
 
-Key insight from Wikipedia: "LLMs use statistical algorithms to guess what should come next. The result tends toward the most statistically likely result that applies to the widest variety of cases. It can simultaneously be a strength and a 'tell' for detecting AI-generated content."
+Key insight from Wikipedia: "LLMs use statistical algorithms to guess what should come next. The result tends toward the most statistically likely result that applies to the widest variety of cases."
