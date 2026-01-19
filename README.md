@@ -77,7 +77,7 @@ Based on [Wikipedia's "Signs of AI writing"](https://en.wikipedia.org/wiki/Wikip
 | 15 | **Inline-header lists** | "**Performance:** Performance improved" | Convert to prose |
 | 16 | **Title Case Headings** | "Strategic Negotiations And Partnerships" | "Strategic negotiations and partnerships" |
 | 17 | **Emojis** | "🚀 Launch Phase: 💡 Key Insight:" | Remove emojis |
-| 18 | **Curly quotes** | "said "the project"" | "said \"the project\"" |
+| 18 | **Curly quotes** | `said “the project”` | `said "the project"` |
 
 ### Communication Patterns
 
@@ -110,6 +110,7 @@ Based on [Wikipedia's "Signs of AI writing"](https://en.wikipedia.org/wiki/Wikip
 
 ## Version History
 
+- **2.1.1** - Fixed pattern #18 example (curly quotes vs straight quotes)
 - **2.1.0** - Added before/after examples for all 24 patterns
 - **2.0.0** - Complete rewrite based on raw Wikipedia article content
 - **1.0.0** - Initial release
