@@ -1,6 +1,6 @@
 ---
 name: humanizer
-version: 2.1.1
+version: 3.0.0
 description: |
   Remove signs of AI-generated writing from text. Use when editing or reviewing
   text to make it sound more natural and human-written. Based on Wikipedia's
@@ -8,13 +8,6 @@ description: |
   inflated symbolism, promotional language, superficial -ing analyses, vague
   attributions, em dash overuse, rule of three, AI vocabulary words, negative
   parallelisms, and excessive conjunctive phrases.
-allowed-tools:
-  - Read
-  - Write
-  - Edit
-  - Grep
-  - Glob
-  - AskUserQuestion
 ---
 
 # Humanizer: Remove AI Writing Patterns
@@ -299,10 +292,10 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 
 ### 18. Curly Quotation Marks
 
-**Problem:** ChatGPT uses curly quotes (“...”) instead of straight quotes ("...").
+**Problem:** ChatGPT uses curly quotes ("...") instead of straight quotes ("...").
 
 **Before:**
-> He said “the project is on track” but others disagreed.
+> He said \u201cthe project is on track\u201d but others disagreed.
 
 **After:**
 > He said "the project is on track" but others disagreed.
@@ -427,7 +420,7 @@ Provide:
 >
 > While specific details are limited based on available information, it could potentially be argued that these tools might have some positive effect. Despite challenges typical of emerging technologies—including hallucinations, bias, and accountability—the ecosystem continues to thrive. In order to fully realize this potential, teams must align with best practices.
 >
-> In conclusion, the future looks bright. Exciting times lie ahead as we continue this journey toward excellence. Let me know if you’d like me to expand on any section!
+> In conclusion, the future looks bright. Exciting times lie ahead as we continue this journey toward excellence. Let me know if you'd like me to expand on any section!
 
 **After (Humanized):**
 > AI coding assistants speed up some tasks. In a 2024 study by Google, developers using Codex completed simple functions 55% faster than a control group, but showed no improvement on debugging or architectural decisions.

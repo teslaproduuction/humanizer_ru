@@ -1,0 +1,12 @@
+{
+  "name": "humanizer",
+  "version": "3.0.0",
+  "description": "Remove signs of AI-generated writing from text. Supports English and Russian.",
+  "author": {
+    "name": "teslaproduuction",
+    "url": "https://github.com/teslaproduuction"
+  },
+  "repository": "https://github.com/teslaproduuction/humanizer_ru",
+  "license": "MIT",
+  "keywords": ["humanizer", "ai-writing", "text-editing", "russian", "канцелярит"]
+}
